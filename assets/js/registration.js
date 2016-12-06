@@ -24,6 +24,10 @@ $(document).ready(function(){
     		
     	});
     	if(send){
+            
+            var reg_btn = document.getElementById("registerbtn");
+            var success = document.getElementById("success");
+            reg_btn.disabled = true;
     		e.preventDefault();
     		var newRoom = false;
     		if($('#createNewRoom:checked').length == 1){
@@ -40,10 +44,12 @@ $(document).ready(function(){
                                 if(result[0] == 409){
                                     $("#errorMessage").css("color", "red");
                                     document.getElementById("errorMessage").innerHTML = result[1];
+                                    reg_btn.disabled = false;
                                 }
-                                else{
+                                else if(result[0] == 200){ //successful registration
                                     document.getElementById("errorMessage").innerHTML = "";
-
+                                    success.innerHTML = "Registration was successful, now you can login!";
+                                    reg_btn.disabled = false;
                                 }
 		  					},
                             error: function (request, status, error) {

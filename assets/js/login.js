@@ -22,6 +22,8 @@ $(document).ready(function(){
     		}
     	});
         if(send){
+            var log_btn = document.getElementById("loginbtn").disabled = true;
+            log_btn.disabled = true;
             e.preventDefault(); 
             $.ajax({
                             type: "POST",
@@ -34,6 +36,7 @@ $(document).ready(function(){
                                 if(result[0] == 401){
                                     $("#errorMessageLogin").css("color", "red");
                                     document.getElementById("errorMessageLogin").innerHTML = result[1];
+                                    log_btn.disabled = false;
                                 }
                                 else{
                                     document.getElementById("errorMessageLogin").innerHTML = "";

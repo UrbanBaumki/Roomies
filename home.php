@@ -1,6 +1,11 @@
 <?php
     session_start();
-    $user = $_SESSION["username"];  
+    if(isset($_SESSION["username"]))
+        $user = $_SESSION["username"]; 
+    else{
+        header("Location: index.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +30,11 @@
 		<link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
-
+<script type="text/javascript">
+    function log_out(){
+        window.location = "./logout.php";
+    }
+</script>
     <body>
 
         <!-- Top content -->
@@ -48,7 +57,7 @@
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    
+				                    <button id="logoutBtn" onclick="log_out();">Log out!</button>
 			                    </div>
 		                    </div>
 

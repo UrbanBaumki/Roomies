@@ -62,7 +62,7 @@ if(isset($_SESSION["username"]))
                                             <input type="text" name="form-room" placeholder="Room..." class="form-room form-control" id="form-room">
                                         </div>
                                         <p id="errorMessageLogin"></p>
-				                        <button type="submit" class="btn">Sign in!</button>
+				                        <button type="submit" class="btn" id="loginbtn">Sign in!</button>
 				                    </form>
 			                    </div>
 		                    </div>
@@ -103,7 +103,8 @@ if(isset($_SESSION["username"]))
                                             <input type="checkbox" name="NewRoom" value="True" id="createNewRoom"> Create new Room<br>
                                         </div>
                                         <p id="errorMessage"></p>
-				                        <button type="submit" class="btn">Sign me up!</button>
+                                        <p id="success"></p>
+				                        <button id="registerbtn" type="submit" class="btn" >Sign me up!</button>
 				                    </form>
                                     
 			                    </div>
