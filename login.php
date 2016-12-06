@@ -33,6 +33,9 @@
 	}
 	else{
 		$return = array($http_code,$response ->_id, $response ->room,$response->username);
+		session_start();
+		$_SESSION["username"] = $response->username;		
 		echo json_encode($return);
+
 	}
 ?>

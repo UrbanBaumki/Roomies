@@ -30,12 +30,14 @@ $(document).ready(function(){
                             success:function(data){
                                 e.preventDefault();
                                 var result = eval(data);
+                                
                                 if(result[0] == 401){
                                     $("#errorMessageLogin").css("color", "red");
                                     document.getElementById("errorMessageLogin").innerHTML = result[1];
                                 }
                                 else{
                                     document.getElementById("errorMessageLogin").innerHTML = "";
+                                    window.location = "./home.php";
                                 }
                             },
                             error: function (request, status, error) {
